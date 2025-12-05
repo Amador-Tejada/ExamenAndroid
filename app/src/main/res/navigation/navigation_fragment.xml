@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_fragment"
-    app:startDestination="@id/api">
+    app:startDestination="@id/inicio">
 
     <fragment
         android:id="@+id/api"
@@ -34,4 +34,9 @@
         android:name="com.example.examen.Fragmentos.ApiRestBoton"
         android:label="fragment_api_rest_boton"
         tools:layout="@layout/fragment_api_rest_boton" />
+    <fragment
+        android:id="@+id/inicio"
+        android:name="com.example.examen.Fragmentos.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" />
 </navigation>

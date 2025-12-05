@@ -10,6 +10,10 @@
         <!-- IMPORTANTE: Los IDs deben coincidir con los del navigation.xml -->
 
         <item
+            android:id="@+id/inicio"
+            android:title="Inicio">
+        </item>
+        <item
             android:id="@+id/gridview"
             android:title="GridView">
         </item>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentos.Inicio">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOS PSICOHISTORIADORES"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvContenido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:paddingTop="50dp"
+                android:text="Se llamaba Gaal Dornick y no era más que un campesino que nunca había
+visto Trántor.
+Es decir, no realmente. Lo había visto muchas veces en el hipervídeo, y
+ocasionalmente en enormes noticieros tridimensionales que informaban sobre una
+coronación imperial o la apertura de un consejo galáctico. A pesar de haber vivido
+siempre en el mundo de Synnax, que giraba alrededor de una estrella al borde del
+Cúmulo Azul, no estaba desconectado de la civilización. En aquel tiempo, ningún
+lugar de la Galaxia lo estaba.
+Por aquel entonces, había cerca de veinticinco millones de planetas
+habitados en la Galaxia, y absolutamente todos eran leales al imperio, con sede en
+Trántor. Fueron los últimos cincuenta años en que pudo decirse tal cosa.
+Para Gaal, aquel viaje era el punto culminante de su juventud y de su vida
+estudiantil. Ya había salido al espacio con anterioridad, de modo que el viaje, en sí
+mismo, no significaba gran cosa para él. En realidad, hasta entonces, sólo había ido
+al único satélite de Synnax para obtener unos datos sobre la mecánica de los
+desplazamientos meteóricos que necesitaba para una disertación; pero los viajes
+espaciales eran exactamente iguales tanto si se recorría medio millón de kilómetros
+como la misma cantidad de años luz.
+Se había preparado un poco para el salto a través del hiperespacio, un
+fenómeno que no se experimentaba en simples viajes interplanetarios. El salto
+seguía siendo, y probablemente lo sería siempre, el único método práctico para
+viajar a las estrellas. Los viajes a través del espacio ordinario no podían realizarse a
+una velocidad superior a la de la luz ordinaria (un conocimiento científico que
+formaba parte de las pocas cosas serias desde el olvidado amanecer de la historia
+humana), y esto hubiera significado años de viaje para llegar incluso al sistema
+habitado más cercano. A través del hiperespacio, esa inimaginable región que no
+era ni espacio ni tiempo, ni materia ni energía, ni algo ni nada, se podía atravesar la Galaxia en toda su longitud en el intervalo comprendido entre dos instantes de
+tiempo.
+Gaal había esperado el primero de estos saltos con el temor contraído en la
+boca del estómago, y no resultó ser más que una insignificante sacudida, una
+conmoción interna sin importancia que cesó un instante antes de que pudiera darse
+cuenta de haberla sentido. Eso fue todo.
+Y después de eso, sólo quedó la nave, grande y brillante; la fría producción
+de 12.000 años de progreso imperial; y él mismo, con su doctorado de
+matemáticas recién obtenido y una invitación del gran Hari Seldon para ir a Trántor
+y unirse al vasto y algo misterioso Proyecto Seldon.
+Lo que Gaal aguardaba después de la decepción del salto era contemplar
+Trántor por primera vez. No dejaba de entrar en el mirador. Las láminas de acero
+se enrollaban en determinados momentos y él siempre estaba allí, contemplando el
+frío brillo de las estrellas, admirando el increíble enjambre nebuloso de un racimo
+de estrellas, como una conglomeración gigante de luciérnagas sorprendidas en
+pleno vuelo y detenidas para siempre. En cierta ocasión vio « el frío humo de color
+blanco azulado de una nebulosa a 10 cinco años luz de la nave, que se extendía
+sobre la ventanilla como una mancha de leche distante, llenaba la habitación de un
+matiz helado, y desaparecía de la vista dos horas después, tras un nuevo salto.
+La primera visión del sol de Trántor fue la de una mota dura y blanca,
+perdida completamente en una miríada de otras iguales, y sólo reconocible porque
+estaba señalada en la guía de la nave. Las estrellas eran numerosas allí, en el
+centro de la Galaxia. Pero a cada salto, su brillo se incrementaba, haciendo que el
+resto se apagara, se enrareciera y empalideciera.
+Un oficial se acercó diciendo:
+— El mirador estará cerrado durante el resto del viaje. Prepárense para
+aterrizar.
+Gaal le siguió, y agarró la manga del uniforme blanco con el distintivo de la
+nave espacial y el sol del imperio.
+Preguntó :
+— ¿No podrían dejarme? Me gustaría ver Trántor.
+El oficial sonrió y Gaal se sonrojó ligeramente. Se le ocurrió pensar que
+hablaba como un provinciano.
+El oficial dijo:
+— Aterrizaremos en Trántor mañana por la mañana.
+— Me refería a que quiero verlo desde el espacio.
+— Oh, lo siento, muchacho. Si esto fuera una nave de recreo no habría
+inconveniente, pero estamos bajando en picado, de cara al sol. Seguramente no te
+gustaría quedarte ciego, quemado y afectado por la radiación todo al mismo
+tiempo, ¿verdad?
+Gaal se alejó de él.
+El oficial siguió hablando:
+— De todos modos, Trántor no sería más que una mancha gris, muchacho.
+¿Por qué no haces un viaje espacial turístico cuando llegues a Trántor? Son baratos.
+Gaal miró hacia atrás.
+— Muchísimas gracias. Era infantil sentirse decepcionado; pero el infantilismo afecta casi con la
+misma facilidad a un hombre que a un niño, y Gaal tenía un nudo en la garganta.
+Nunca había visto Trántor extendido ante él en toda su magnitud, tan grande como
+la vida, y no había creído tener que aguardar aún más.
+
+--------------------------2---------------------------------
+
+La nave aterrizó en medio de numerosos ruidos. Hubo el lejano silbido de la
+atmósfera hendida, que se deslizaba a lo largo del metal de la nave. Hubo el
+monótono zumbido de los acondicionadores que luchaban contra el calor de la
+fricción, y el rugido más amortiguado de los motores que aminoraban la velocidad.
+Hubo el sonido humano de hombres y mujeres que se amontonaban en las salas de
+desembarco y el crujido de grúas que levantaban el equipaje, el correo y el
+cargamento hasta el gran eje de la nave, desde donde, más tarde, serían
+trasladados a las plataformas de descarga.
+Gaal experimentó una ligera sacudida indicadora de que la nave había
+dejado de moverse con independencia propia. La gravedad de la nave hacía horas
+que daba paso a la gravedad planetaria. Miles de pasajeros habían estado
+pacientemente sentados en las salas de desembarco, que se balanceaban con
+suavidad a impulsos de campos de fuerza para acomodar su orientación a la
+dirección cambiante de las fuerzas gravitacionales.
+Ahora descendían lentamente por las rampas que les llevarían a las grandes
+y abiertas compuertas.
+El equipaje de Gaal era mínimo. Permaneció junto al mostrador, mientras lo
+examinaban rápida y expertamente, y lo ordenaban de nuevo. Su visado fue
+inspeccionado y sellado. Él no prestó atención a nada.
+¡Aquello era Trántor! El aire parecía un poco más denso y la gravedad algo
+mayor que en su planeta de Synnax, pero ya se acostumbraría. Se preguntó si
+llegaría a habituarse a la inmensidad.
+El edificio de desembarco era enorme. El techo se perdía en las alturas. Gaal
+pensó que las nubes casi podían formarse debajo de su inmensidad. No vio ninguna
+pared; sólo hombres y mostradores y el suelo convergente que desaparecía a lo
+lejos.
+El hombre del mostrador habló de nuevo. Parecía molesto. Dijo:
+— Siga adelante, Dornick.
+Tuvo que abrir el visado y volver a mirarlo, para acordarse del nombre.
+Gaal preguntó :
+— ¿Dónde… dónde… ?
+El hombre del mostrador señaló con el pulgar.
+— Los taxis a la derecha y la tercera a la izquierda.
+Gaal avanzó, y vio los brillantes rizos de aire suspendidos en la nada, que
+decían:
+TAXIS A TODAS DIRECCIONES.
+Una figura surgió del anonimato y se detuvo frente al mostrador cuando
+Gaal se iba. El hombre del mostrador alzó la mirada y asintió brevemente. La figura
+asintió a su vez y siguió al recién llegado. "
+                android:textSize="16sp"
+                android:justificationMode="inter_word"/>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

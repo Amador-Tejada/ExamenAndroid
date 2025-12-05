@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         // Estos fragmentos mostrarán el icono de hamburguesa en lugar de la flecha de retroceso
         appBarConfiguration = AppBarConfiguration(
             setOf(
+                R.id.inicio,
+                R.id.apiRestRandom,
+                R.id.apiRestBoton,
                 R.id.gridview,
                 R.id.api,
                 R.id.lista,
