@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Este menú define los items que aparecerán en el Navigation Drawer-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_main">
+
+    <group android:checkableBehavior="single">
+
+        <!-- IMPORTANTE: Los IDs deben coincidir con los del navigation.xml -->
+
+        <item
+            android:id="@+id/gridview"
+            android:title="GridView">
+        </item>
+
+        <item
+            android:id="@+id/api"
+            android:title="Api Rest">
+        </item>
+
+        <item
+            android:id="@+id/lista"
+            android:title="ListView">
+        </item>
+        <item
+            android:id="@+id/recyclerView"
+            android:title="RecyclerView">
+        </item>
+        <item
+            android:id="@+id/apiRestRandom"
+            android:title="ApiRestRandom">
+        </item>
+        <item
+            android:id="@+id/apiRestBoton"
+            android:title="ApiRest Boton">
+        </item>
+    </group>
+</menu>

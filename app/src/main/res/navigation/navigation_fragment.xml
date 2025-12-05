@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_fragment"
+    app:startDestination="@id/api">
+
+    <fragment
+        android:id="@+id/api"
+        android:name="com.example.examen.Fragmentos.ApiRestBusqueda"
+        android:label="ApiRest" />
+    <fragment
+        android:id="@+id/gridview"
+        android:name="com.example.examen.Fragmentos.GridView"
+        android:label="fragment_grid_view"
+        tools:layout="@layout/fragment_grid_view" />
+    <fragment
+        android:id="@+id/lista"
+        android:name="com.example.examen.Fragmentos.ListView"
+        android:label="fragment_list_view"
+        tools:layout="@layout/fragment_list_view" />
+    <fragment
+        android:id="@+id/recyclerView"
+        android:name="com.example.examen.Fragmentos.RecyclerViewImagen"
+        android:label="fragment_recycler_view_imagen"
+        tools:layout="@layout/fragment_recycler_view_imagen" />
+    <fragment
+        android:id="@+id/apiRestRandom"
+        android:name="com.example.examen.Fragmentos.ApiRestRandom"
+        android:label="fragment_api_rest_random"
+        tools:layout="@layout/fragment_api_rest_random" />
+    <fragment
+        android:id="@+id/apiRestBoton"
+        android:name="com.example.examen.Fragmentos.ApiRestBoton"
+        android:label="fragment_api_rest_boton"
+        tools:layout="@layout/fragment_api_rest_boton" />
+</navigation>
