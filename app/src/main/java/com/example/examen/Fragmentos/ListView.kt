@@ -5,56 +5,77 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.examen.R
+import android.widget.AdapterView
+import android.widget.Toast
+import com.example.examen.adapter.personaAdapter
+import com.example.examen.adapter.tipoPersona
+import com.example.examen.databinding.FragmentListViewBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ListView.newInstance] factory method to
- * create an instance of this fragment.
- */
+// Fragmento que muestra una lista de personas en un ListView
 class ListView : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    // Variable nullable para el binding, se inicializa en onCreateView y se limpia en onDestroyView
+    private var _binding: FragmentListViewBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    // Propiedad que devuelve el binding de forma segura (!!), solo debe usarse cuando sabemos que no es null
+    private val binding get() = _binding!!
 
+    // Adaptador personalizado para mostrar las personas en el ListView
+    private lateinit var personaAdapter: personaAdapter
+
+    // Lista mutable con datos de ejemplo de personas (nombre, apellidos, sexo, ciclo)
+    private val listaPersonas = mutableListOf(
+        tipoPersona("Amador", "Tejada", "Hombre", "DAM"),
+        tipoPersona("Maria", "Lopez", "Mujer", "DAW"),
+        tipoPersona("Pedro", "Garcia", "Hombre", "ASIR"),
+        tipoPersona("Ana", "Martin", "Mujer", "DAM"),
+        tipoPersona("Luis", "Rodriguez", "Hombre", "DAW")
+    )
+
+    // Método que se ejecuta para crear la vista del fragmento
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_view, container, false)
+    ): View {
+        // Infla el layout usando View Binding y guarda la referencia
+        _binding = FragmentListViewBinding.inflate(inflater, container, false)
+        // Retorna la vista raíz del binding
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ListView.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListView().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    // Método que se ejecuta después de que la vista ha sido creada
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Inicializa el adaptador pasando el contexto y la lista de personas
+        personaAdapter = personaAdapter(requireContext(), listaPersonas)
+        // Asigna el adaptador al ListView
+        binding.listview.adapter = personaAdapter
+
+        // Configura el listener para detectar clicks en los items del ListView
+        binding.listview.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                // Obtiene la persona en la posición clickeada
+                val persona = listaPersonas[position]
+                // Según el ciclo de la persona, muestra un Toast diferente
+                when (persona.ciclo) {
+                    "DAM" -> {
+                        Toast.makeText(requireContext(), "DAM", Toast.LENGTH_SHORT).show()
+                    }
+                    "DAW" -> {
+                        Toast.makeText(requireContext(), "DAW", Toast.LENGTH_SHORT).show()
+                    }
+                    "ASIR" -> {
+                        Toast.makeText(requireContext(), "ASIR", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
+    }
+
+    // Método que se ejecuta cuando la vista va a ser destruida
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Limpia la referencia del binding para evitar memory leaks
+        _binding = null
     }
 }

@@ -20,19 +20,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Response
 import androidx.lifecycle.lifecycleScope
 
-
+// Fragmento que consume una API REST para mostrar imágenes aleatorias de perros
 class ApiRestBoton : Fragment() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // Este método está vacío, no se necesita inicialización aquí
     }
 
+    // Crea y configura una instancia de Retrofit para hacer peticiones HTTP
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://dog.ceo/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://dog.ceo/") // URL base de la API de Dog CEO
+            .addConverterFactory(GsonConverterFactory.create()) // Convertidor JSON a objetos Kotlin
             .build()
     }
 
@@ -40,62 +40,77 @@ class ApiRestBoton : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Infla el layout del fragmento (sin usar View Binding)
         val view = inflater.inflate(R.layout.fragment_api_rest_boton, container, false)
 
+        // Obtiene referencias a las vistas del layout
         val imageView = view.findViewById<ImageView>(R.id.imageRandom)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBarBoton)
 
+        // Función interna para cargar una imagen aleatoria desde la API
         fun loadRandomImage() {
+            // Muestra el ProgressBar mientras se carga la imagen
             progressBar.visibility = View.VISIBLE
+
+            // Lanza una corrutina en el ciclo de vida del fragmento
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
                     Log.d("ApiRestBoton", "Solicitando imágenes aleatorias (DogResponse)")
+
+                    // Ejecuta la petición HTTP en el hilo IO (background)
                     val response: Response<DogResponse> = withContext(Dispatchers.IO) {
-                        // Pedimos varias (10) para obtener una lista en `DogResponse`
+                        // Solicita 100 imágenes aleatorias de perros
                         getRetrofit().create(APIService::class.java).getDogsByBreeds("api/breeds/image/random/100")
                     }
 
-                    Log.d("ApiRestBoton", "Código respuesta: ${'$'}{response.code()}")
+                    Log.d("ApiRestBoton", "Código respuesta: ${response.code()}")
 
+                    // Verifica si el fragmento sigue adjunto a la actividad
                     if (!isAdded) return@launch
 
+                    // Oculta el ProgressBar una vez recibida la respuesta
                     progressBar.visibility = View.GONE
 
+                    // Procesa la respuesta si es exitosa (código 200)
                     if (response.isSuccessful) {
                         val body = response.body()
+                        // Obtiene la lista de URLs de imágenes
                         val images = body?.images ?: emptyList()
-                        // Elegir una URL aleatoria de la lista
+
+                        // Selecciona una URL aleatoria de la lista
                         val url = images.randomOrNull()
+
+                        // Si hay una URL válida, carga la imagen con Picasso
                         if (!url.isNullOrEmpty()) {
                             Picasso.get().load(url)
-                                .placeholder(R.drawable.ic_launcher_foreground)
-                                .error(R.drawable.ic_launcher_foreground)
-                                .fit()
-                                .centerCrop()
-                                .into(imageView)
+                                .placeholder(R.drawable.ic_launcher_foreground) // Imagen mientras carga
+                                .error(R.drawable.ic_launcher_foreground) // Imagen si hay error
+                                .fit() // Ajusta la imagen al tamaño del ImageView
+                                .centerCrop() // Recorta desde el centro
+                                .into(imageView) // Muestra en el ImageView
                         } else {
                             Log.e("ApiRestBoton", "No hay imágenes en la respuesta")
                         }
                     } else {
-                        Log.e("ApiRestBoton", "Respuesta no exitosa: ${'$'}{response.code()}")
+                        Log.e("ApiRestBoton", "Respuesta no exitosa: ${response.code()}")
                     }
                 } catch (e: Exception) {
+                    // Captura errores de red o parsing
                     Log.e("ApiRestBoton", "Error al obtener imagen aleatoria", e)
+                    // Oculta el ProgressBar si hay error
                     if (isAdded) progressBar.visibility = View.GONE
                 }
             }
         }
 
-        // Cargar primera imagen al entrar
+        // Carga automáticamente la primera imagen al entrar al fragmento
         loadRandomImage()
 
+        // Configura el listener: al pulsar la imagen se carga otra aleatoria
         imageView.setOnClickListener {
-            // Al pulsar pedimos otra imagen aleatoria
             loadRandomImage()
         }
 
         return view
     }
-
 }
