@@ -39,4 +39,37 @@
         android:name="com.example.examen.Fragmentos.Inicio"
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/finalFragment"
+        android:name="com.example.examen.Fragmentos.navigationComponentObject.FinalFragment"
+        android:label="FinalFragment" >
+        <action
+            android:id="@+id/action_finalFragment_to_inicioComponentFragment"
+            app:destination="@id/inicioComponentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inicioComponentFragment"
+        android:name="com.example.examen.Fragmentos.navigationComponentObject.InicioComponentFragment"
+        android:label="InicioComponentFragment" >
+        <action
+            android:id="@+id/action_inicioComponentFragment_to_segundoFragment"
+            app:destination="@id/SegundoFragment" />
+    </fragment>
+    <fragment
+    android:id="@+id/SegundoFragment"
+    android:name="com.example.examen.Fragmentos.navigationComponentObject.SegundoFragment"
+    android:label="SegundoFragment">
+    <argument
+        android:name="Nombre"
+        app:argType="string" />
+    <argument
+        android:name="Apellido"
+        app:argType="string" />
+    <argument
+        android:name="Telefono"
+        app:argType="integer" />
+    <action
+        android:id="@+id/action_SegundoFragment_to_FinallFragment"
+        app:destination="@id/finalFragment"/>
+</fragment>
 </navigation>

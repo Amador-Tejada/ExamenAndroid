@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.api,             // Fragmento de búsqueda de perros por raza
                 R.id.lista,           // Fragmento con ListView (probablemente de personas)
                 R.id.recyclerView,    // Fragmento con RecyclerView (probablemente de personas)
+                R.id.inicioComponentFragment // Fragmento de inicio para componentes personalizados
+
             ),
             binding.drawerLayout // Pasamos el DrawerLayout para que funcione el menú lateral
         )

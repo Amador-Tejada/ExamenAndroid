@@ -39,5 +39,10 @@
             android:id="@+id/apiRestBoton"
             android:title="ApiRest Boton">
         </item>
+
+        <item
+            android:id="@+id/inicioComponentFragment"
+            android:title="Nav Component Inicio">
+        </item>
     </group>
 </menu>
