@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("androidx.navigation.safeargs")
+    id("androidx.navigation.safeargs") // Para Safe Args en Navigation Component
 }
 
 android {

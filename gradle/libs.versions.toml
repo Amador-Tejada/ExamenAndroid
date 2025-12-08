@@ -11,8 +11,8 @@ activity = "1.12.0"
 constraintlayout = "2.2.1"
 
 # AÑADID ESTAS DOS NUEVAS VERSIONES para el Navigation Drawer
-navigationFragmentKtx = "2.8.5"
-navigationUiKtx = "2.8.5"
+navigationFragmentKtx = "2.9.6"
+navigationUiKtx = "2.9.6"
 drawerlayout = "1.2.0"
 
 
