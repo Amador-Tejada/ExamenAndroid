@@ -19,7 +19,7 @@ class RadioButton : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentRadioButtonBinding.inflate(inflater, container, false)
 
         // Mover el listener antes del return para que se ejecute
@@ -57,15 +57,15 @@ class RadioButton : Fragment() {
             }
             // Mostramos el resultado en el TextView
             binding.tvResultado.text = total.toString()
-        } catch (_: NumberFormatException) {
+        } catch (e: NumberFormatException) {
             // Este error ocurre si los campos están vacíos
-            binding.tvResultado.text = getString(R.string.ingrese_valores_validos)
-        } catch (_: ArithmeticException) {
+            binding.tvResultado.text = "Ingrese valores válidos"
+        } catch (e: ArithmeticException) {
             // Este error es para la división por cero
-            binding.tvResultado.text = getString(R.string.error_div_por_cero)
-        } catch (_: Exception) {
+            binding.tvResultado.text = "Error: Div por 0"
+        } catch (e: Exception) {
             // Captura cualquier otro error inesperado
-            binding.tvResultado.text = getString(R.string.error_generico)
+            binding.tvResultado.text = "Error"
         }
     }
 }
