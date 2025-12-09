@@ -20,10 +20,10 @@
         android:label="fragment_list_view"
         tools:layout="@layout/fragment_list_view" />
     <fragment
-        android:id="@+id/recyclerView"
-        android:name="com.example.examen.Fragmentos.RecyclerViewImagen"
+        android:id="@+id/spinner"
+        android:name="com.example.examen.Fragmentos.Spinner"
         android:label="fragment_recycler_view_imagen"
-        tools:layout="@layout/fragment_recycler_view_imagen" />
+        tools:layout="@layout/fragment_spinner" />
     <fragment
         android:id="@+id/apiRestRandom"
         android:name="com.example.examen.Fragmentos.ApiRestRandom"
@@ -72,4 +72,10 @@
         android:id="@+id/action_SegundoFragment_to_FinallFragment"
         app:destination="@id/finalFragment"/>
 </fragment>
+    <fragment
+        android:id="@+id/radioButton"
+        android:name="com.example.examen.Fragmentos.RadioButton"
+        android:label="fragment_radio_button"
+        tools:layout="@layout/fragment_radio_button"/>
+
 </navigation>

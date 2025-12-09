@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edValor1"
+        android:layout_width="338dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="124dp"
+        android:hint="valor-1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edValor2"
+        android:layout_width="337dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="48dp"
+        android:hint="valor-2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edValor1"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tvResultado"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:text="Resultado"
+        android:textColor="#090909"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:ignore="MissingConstraints" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="238dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edValor2">
+
+
+        <RadioButton
+            android:id="@+id/rbSuma"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="Suma"
+            tools:ignore="MissingConstraints" />
+
+
+        <RadioButton
+            android:id="@+id/rbResta"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginBottom="10dp"
+            android:text="Resta"
+            tools:ignore="MissingConstraints" />
+
+
+        <RadioButton
+            android:id="@+id/rbMulti"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="Multiplicacion"
+            tools:ignore="MissingConstraints" />
+
+
+        <RadioButton
+            android:id="@+id/rbdivi"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="Division"
+            tools:ignore="MissingConstraints" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

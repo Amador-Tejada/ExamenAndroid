@@ -44,5 +44,15 @@
             android:id="@+id/inicioComponentFragment"
             android:title="Nav Component Inicio">
         </item>
+        <item
+            android:id="@+id/spinner"
+            android:title="Spinner">
+        </item>
+
+        <item
+                android:id="@+id/radioButton"
+                android:title="RadioButton">
+        </item>
+
     </group>
 </menu>
