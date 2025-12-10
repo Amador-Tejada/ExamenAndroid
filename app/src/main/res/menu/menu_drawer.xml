@@ -53,6 +53,10 @@
                 android:id="@+id/radioButton"
                 android:title="RadioButton">
         </item>
+        <item
+                android:id="@+id/sharePreferences"
+                android:title="Share Preferences">
+        </item>
 
     </group>
 </menu>

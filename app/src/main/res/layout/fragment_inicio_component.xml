@@ -27,12 +27,12 @@
         android:id="@+id/edNombre"
         android:layout_width="330dp"
         android:layout_height="45dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="148dp"
         android:hint="Introduce Nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edApellido"
@@ -55,19 +55,5 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edApellido" />
-
-    <TextView
-        android:id="@+id/tvTitulo"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="#009688"
-        android:paddingStart="20dp"
-        android:paddingTop="25dp"
-        android:text="EjercicioNavigationComponent"
-        android:textColor="#FBFBFB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

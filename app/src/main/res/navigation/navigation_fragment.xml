@@ -77,5 +77,10 @@
         android:name="com.example.examen.Fragmentos.RadioButton"
         android:label="fragment_radio_button"
         tools:layout="@layout/fragment_radio_button"/>
+    <fragment
+        android:id="@+id/sharePreferences"
+        android:name="com.example.examen.Fragmentos.SharePreferences"
+        android:label="fragment_share_preferences"
+        tools:layout="@layout/fragment_share_preferences" />
 
 </navigation>

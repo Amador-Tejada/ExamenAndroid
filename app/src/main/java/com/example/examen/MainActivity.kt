@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.lista,           // Fragmento con ListView (probablemente de personas)
                 R.id.spinner,    // Fragmento con RecyclerView (probablemente de personas)
                 R.id.inicioComponentFragment, // Fragmento de inicio para componentes personalizado
-                R.id.radioButton    // Fragmento con RadioButton (probablemente de personas)
+                R.id.radioButton,
+                R.id.sharePreferences// Fragmento con RadioButton (probablemente de personas)
 
             ),
             binding.drawerLayout // Pasamos el DrawerLayout para que funcione el menú lateral

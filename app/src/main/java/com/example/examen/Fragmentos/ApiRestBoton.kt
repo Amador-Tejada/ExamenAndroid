@@ -21,6 +21,7 @@ import retrofit2.Response
 import androidx.lifecycle.lifecycleScope
 
 // Fragmento que consume una API REST para mostrar imágenes aleatorias de perros
+// Fragmento que consume una API REST para mostrar imágenes aleatorias de perros
 class ApiRestBoton : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,15 +44,11 @@ class ApiRestBoton : Fragment() {
         // Infla el layout del fragmento (sin usar View Binding)
         val view = inflater.inflate(R.layout.fragment_api_rest_boton, container, false)
 
-        // Obtiene referencias a las vistas del layout
+        // Obtiene referencia al ImageView del layout
         val imageView = view.findViewById<ImageView>(R.id.imageRandom)
-        val progressBar = view.findViewById<ProgressBar>(R.id.progressBarBoton)
 
         // Función interna para cargar una imagen aleatoria desde la API
         fun loadRandomImage() {
-            // Muestra el ProgressBar mientras se carga la imagen
-            progressBar.visibility = View.VISIBLE
-
             // Lanza una corrutina en el ciclo de vida del fragmento
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
@@ -67,9 +64,6 @@ class ApiRestBoton : Fragment() {
 
                     // Verifica si el fragmento sigue adjunto a la actividad
                     if (!isAdded) return@launch
-
-                    // Oculta el ProgressBar una vez recibida la respuesta
-                    progressBar.visibility = View.GONE
 
                     // Procesa la respuesta si es exitosa (código 200)
                     if (response.isSuccessful) {
@@ -97,8 +91,6 @@ class ApiRestBoton : Fragment() {
                 } catch (e: Exception) {
                     // Captura errores de red o parsing
                     Log.e("ApiRestBoton", "Error al obtener imagen aleatoria", e)
-                    // Oculta el ProgressBar si hay error
-                    if (isAdded) progressBar.visibility = View.GONE
                 }
             }
         }

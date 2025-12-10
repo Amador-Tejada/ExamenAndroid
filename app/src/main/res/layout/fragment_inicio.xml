@@ -29,11 +29,11 @@
                 android:id="@+id/tvContenido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:lineSpacingExtra="4dp"
                 android:paddingTop="50dp"
                 android:text="Se llamaba Gaal Dornick y no era más que un campesino que nunca había
-visto Trántor.
-Es decir, no realmente. Lo había visto muchas veces en el hipervídeo, y
+visto Trántor. Es decir, no realmente. Lo había visto muchas veces en el hipervídeo, y
 ocasionalmente en enormes noticieros tridimensionales que informaban sobre una
 coronación imperial o la apertura de un consejo galáctico. A pesar de haber vivido
 siempre en el mundo de Synnax, que giraba alrededor de una estrella al borde del
@@ -148,8 +148,7 @@ TAXIS A TODAS DIRECCIONES.
 Una figura surgió del anonimato y se detuvo frente al mostrador cuando
 Gaal se iba. El hombre del mostrador alzó la mirada y asintió brevemente. La figura
 asintió a su vez y siguió al recién llegado. "
-                android:textSize="16sp"
-                android:justificationMode="inter_word"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
