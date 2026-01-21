@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_fragment"
-    app:startDestination="@id/inicio">
+    app:startDestination="@id/loginInicio">
 
     <fragment
         android:id="@+id/api"
@@ -82,5 +82,15 @@
         android:name="com.example.examen.Fragmentos.SharePreferences"
         android:label="fragment_share_preferences"
         tools:layout="@layout/fragment_share_preferences" />
+    <fragment
+        android:id="@+id/loginInicio"
+        android:name="com.example.examen.Fragmentos.login.LoginInicio"
+        android:label="fragment_login_inicio"
+        tools:layout="@layout/fragment_login_inicio" />
+    <fragment
+        android:id="@+id/registrarLogin"
+        android:name="com.example.examen.Fragmentos.login.RegistrarLogin"
+        android:label="fragment_registrar_login"
+        tools:layout="@layout/fragment_registrar_login" />
 
 </navigation>

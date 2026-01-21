@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Este menú define los items que aparecerán en el Navigation Drawer-->
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/activity_main">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
 
