@@ -82,6 +82,26 @@
         android:name="com.example.examen.Fragmentos.SharePreferences"
         android:label="fragment_share_preferences"
         tools:layout="@layout/fragment_share_preferences" />
+
+    <!-- Destino para IngresoDatos (GridviewConDB) -->
+    <fragment
+        android:id="@+id/ingresoDatos"
+        android:name="com.example.examen.Fragmentos.GridviewConDB.IngresoDatos"
+        android:label="fragment_ingreso_datos"
+        tools:layout="@layout/fragment_ingreso_datos" />
+
+    <!-- Destino para GridViewDB (lista guardada) -->
+    <fragment
+        android:id="@+id/GridViewDB"
+        android:name="com.example.examen.Fragmentos.GridviewConDB.GridViewDB"
+        android:label="fragment_grid_view_d_b"
+        tools:layout="@layout/fragment_grid_view_d_b" />
+
+    <!-- Acción para navegar de IngresoDatos a GridViewDB -->
+    <action
+        android:id="@+id/action_ingresoDatos_to_GridViewDB"
+        app:destination="@id/GridViewDB" />
+
     <fragment
         android:id="@+id/loginInicio"
         android:name="com.example.examen.Fragmentos.login.LoginInicio"

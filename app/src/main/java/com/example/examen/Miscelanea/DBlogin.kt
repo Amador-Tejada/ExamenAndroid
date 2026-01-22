@@ -42,8 +42,6 @@ class DBlogin (context: Context): SQLiteOpenHelper(
     // Sentencia SQL para crear la tabla
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(SQL_CREATE_ENTRIES)
-
-
     }
 
     // Sentencia SQL para actualizar la base de datos

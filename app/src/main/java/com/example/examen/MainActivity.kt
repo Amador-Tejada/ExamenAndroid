@@ -1,12 +1,16 @@
 package com.example.examen
 
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.examen.databinding.ActivityMainBinding
 
 // Actividad principal que gestiona la navegación entre fragmentos usando Navigation Component
@@ -54,7 +58,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.spinner,    // Fragmento con RecyclerView (probablemente de personas)
                 R.id.inicioComponentFragment, // Fragmento de inicio para componentes personalizado
                 R.id.radioButton,
-                R.id.sharePreferences// Fragmento con RadioButton (probablemente de personas)
+                R.id.sharePreferences,// Fragmento con RadioButton (probablemente de personas)
+                R.id.GridViewDB,      // Fragmento con GridView de personas
+                R.id.ingresoDatos     // Fragmento Ingreso Datos de personas para la base de datos (id corregido)
 
             ),
             binding.drawerLayout // Pasamos el DrawerLayout para que funcione el menú lateral
@@ -74,18 +80,42 @@ class MainActivity : AppCompatActivity() {
         // Los IDs de los items del menú deben coincidir con los IDs de los fragmentos en el grafo de navegación
         binding.navigationView.setupWithNavController(navController)
 
+        //------------------------------ Metodo para asegurar navegacion manual--------------------------
+        // Añadimos un listener adicional para depuración/fiabilidad: si la navegación por defecto no funciona,
+        // intentamos navegar manualmente y mostramos un Toast con resultados para ayudar a depurar.
+        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Cerramos el drawer antes o después de navegar
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+            try {
+                // Intentamos navegar al id del menú (debe existir en el nav graph)
+                navController.navigate(menuItem.itemId)
+                Toast.makeText(this, "Navegando a: ${menuItem.title}", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                // Si falla la navegación, mostramos el error en un Toast para diagnosticar
+                Toast.makeText(this, "No se pudo navegar a ${menuItem.title}: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+            true
+        }
+        //----------------------------------------------------------------------------------------------
+
+
+
         // PASO 7: Configurar listener para ocultar/mostrar toolbar y drawer según el fragmento
+        // Opción B: ocultar físicamente toolbar en login/registro y, al volver, re-aplicar setupActionBarWithNavController
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.loginInicio, R.id.registrarLogin -> {
                     // Ocultar toolbar y deshabilitar drawer en pantallas de login
                     binding.toolbar.visibility = android.view.View.GONE
-                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 else -> {
                     // Mostrar toolbar y habilitar drawer en el resto de pantallas
                     binding.toolbar.visibility = android.view.View.VISIBLE
-                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED)
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                    // Re-aplicar configuración para sincronizar el ActionBar/DrawerToggle y que aparezca la hamburguesa
+                    setupActionBarWithNavController(navController, appBarConfiguration)
+                    supportActionBar?.setDisplayShowTitleEnabled(false)
                 }
             }
         }

@@ -14,10 +14,7 @@ import com.example.examen.databinding.FragmentGridViewBinding
 // Fragmento que muestra una cuadrícula de personas en un GridView
 class GridView : Fragment() {
     // Variable nullable para el binding, se inicializa en onCreateView y se limpia en onDestroyView
-    private var _binding: FragmentGridViewBinding? = null
-
-    // Propiedad que devuelve el binding de forma segura (!!), solo debe usarse cuando sabemos que no es null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGridViewBinding
 
     // Adaptador personalizado para mostrar las personas en el GridView
     private lateinit var personaAdapter: personaAdapter
@@ -38,7 +35,7 @@ class GridView : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Infla el layout usando View Binding y guarda la referencia
-        _binding = FragmentGridViewBinding.inflate(inflater, container, false)
+        binding = FragmentGridViewBinding.inflate(inflater, container, false)
         // Retorna la vista raíz del binding
         return binding.root
     }
@@ -76,7 +73,5 @@ class GridView : Fragment() {
     // Método que se ejecuta cuando la vista va a ser destruida
     override fun onDestroyView() {
         super.onDestroyView()
-        // Limpia la referencia del binding para evitar memory leaks
-        _binding = null
     }
 }

@@ -56,5 +56,15 @@
                 android:title="Share Preferences">
         </item>
 
+        <item
+                android:id="@+id/GridViewDB"
+                android:title="GridViewDB">
+        </item>
+        <item
+                android:id="@+id/ingresoDatos"
+                android:title="Ingreso Datos">
+        </item>
+
+
     </group>
 </menu>
