@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import com.example.examen.Fragmentos.Inicio
+import androidx.navigation.fragment.findNavController
 import com.example.examen.Miscelanea.DBlogin
 import com.example.examen.R
 import com.example.examen.databinding.FragmentLoginInicioBinding
@@ -45,11 +45,8 @@ class LoginInicio : Fragment() {
 
         // Configuramos los botones registrar y acceder
         binding.btRegistrar.setOnClickListener {
-            // Navegamos a la pantalla de registro mediante una transacción de fragmentos
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.navHostFragment, RegistrarLogin())
-                .addToBackStack(null)
-                .commit()
+            // Navegamos a la pantalla de registro usando NavController
+            findNavController().navigate(R.id.registrarLogin)
         }
 
         binding.btAcceder.setOnClickListener {
@@ -74,11 +71,9 @@ class LoginInicio : Fragment() {
             db.close()
 
             if (valido) { // Si las credenciales son válidas, navega al fragment de inicio.
-                // Navegar al fragment de inicio dentro del mismo Activity
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.navHostFragment, Inicio())
-                    .addToBackStack(null)
-                    .commit()
+                // Navegar al fragment de inicio usando NavController
+                // popUpTo elimina loginInicio del back stack para que no pueda volver atrás
+                findNavController().navigate(R.id.inicio)
             } else {
                 // Si las credenciales no son válidas, muestra un mensaje de error.
                 showDialog("Usuario o contraseña incorrectos")

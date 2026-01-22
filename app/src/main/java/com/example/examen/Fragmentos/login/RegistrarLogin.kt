@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.examen.Miscelanea.DBlogin
-import com.example.examen.R
 import com.example.examen.databinding.FragmentRegistrarLoginBinding
 
 // Pantalla que se centra en la creacion de usuarios para acceder a la app
@@ -50,7 +50,7 @@ class RegistrarLogin : Fragment() {
                 binding.editTextNombre.text.clear()
                 binding.editTextApellidos.text.clear()
                 // volvemos a la pantalla de inicio (login)
-                requireActivity().supportFragmentManager.popBackStack()
+                findNavController().navigateUp()
             }
         }
 
@@ -59,7 +59,7 @@ class RegistrarLogin : Fragment() {
             binding.editTextNombre.text.clear()
             binding.editTextApellidos.text.clear()
             // volvemos a la pantalla de inicio
-            requireActivity().supportFragmentManager.popBackStack()
+            findNavController().navigateUp()
         }
     }
 }

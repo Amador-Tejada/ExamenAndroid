@@ -1,10 +1,7 @@
 package com.example.examen
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -76,6 +73,22 @@ class MainActivity : AppCompatActivity() {
         // Esto hace que al pulsar un item del menú lateral, navegue automáticamente al fragmento correspondiente
         // Los IDs de los items del menú deben coincidir con los IDs de los fragmentos en el grafo de navegación
         binding.navigationView.setupWithNavController(navController)
+
+        // PASO 7: Configurar listener para ocultar/mostrar toolbar y drawer según el fragmento
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginInicio, R.id.registrarLogin -> {
+                    // Ocultar toolbar y deshabilitar drawer en pantallas de login
+                    binding.toolbar.visibility = android.view.View.GONE
+                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+                else -> {
+                    // Mostrar toolbar y habilitar drawer en el resto de pantallas
+                    binding.toolbar.visibility = android.view.View.VISIBLE
+                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED)
+                }
+            }
+        }
     }
 
     // Este método se llama cuando se pulsa el icono de menú/flecha en el ActionBar
